@@ -68,6 +68,7 @@
 #include <poincare/logarithm.h>
 #include <poincare/logical_operator.h>
 #include <poincare/matrix.h>
+#include <poincare/matrix_augment.h>
 #include <poincare/matrix_complex.h>
 #include <poincare/matrix_identity.h>
 #include <poincare/matrix_inverse.h>

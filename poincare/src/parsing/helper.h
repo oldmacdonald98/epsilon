@@ -83,6 +83,7 @@ class ParsingHelper {
       &ComplexArgument::s_functionHelper,              // arg
       &HyperbolicArcSine::s_functionHelper,            // arsinh
       &HyperbolicArcTangent::s_functionHelper,         // artanh
+      &MatrixAugment::s_functionHelper,                // augment
       &BinomCDF::s_functionHelper,                     // binomcdf
       &BinomialCoefficient::s_functionHelper,          // binomial
       &BinomPDF::s_functionHelper,                     // binompdf

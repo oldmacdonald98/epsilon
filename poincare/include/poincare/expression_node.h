@@ -142,6 +142,7 @@ class ExpressionNode : public TreeNode {
     MatrixIdentity,
     MatrixInverse,
     MatrixTranspose,
+    MatrixAugment,
     MatrixRowEchelonForm,
     MatrixReducedRowEchelonForm,
     VectorCross,

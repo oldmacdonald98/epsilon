@@ -50,6 +50,7 @@ class MatrixComplexNode final : public Array, public EvaluationNode<T> {
   std::complex<T> determinant() const;
   MatrixComplex<T> inverse() const;
   MatrixComplex<T> transpose() const;
+  MatrixComplex<T> augment(MatrixComplex<T> *e) const;
   MatrixComplex<T> ref(bool reduced) const;
   std::complex<T> norm() const;
   std::complex<T> dot(MatrixComplex<T> *e) const;
@@ -73,6 +74,7 @@ class MatrixComplex final : public Evaluation<T> {
   std::complex<T> determinant() const { return node()->determinant(); }
   MatrixComplex<T> inverse() const { return node()->inverse(); }
   MatrixComplex<T> transpose() const { return node()->transpose(); }
+  MatrixComplex<T> augment(MatrixComplex<T> *e) const { return node()->augment(e); }
   MatrixComplex<T> ref(bool reduced) const { return node()->ref(reduced); }
   std::complex<T> norm() const { return node()->norm(); }
   std::complex<T> dot(MatrixComplex<T> *e) const { return node()->dot(e); }

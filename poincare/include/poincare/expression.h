@@ -85,6 +85,7 @@ class Expression : public TreeHandle {
   friend class LogarithmNode;
   friend class LogicalOperatorNode;
   friend class Matrix;
+  friend class MatrixAugment;
   friend class MatrixEchelonForm;
   friend class MatrixIdentity;
   friend class MatrixInverse;

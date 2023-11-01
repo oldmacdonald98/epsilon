@@ -122,6 +122,24 @@ MatrixComplex<T> MatrixComplexNode<T>::transpose() const {
 }
 
 template <typename T>
+MatrixComplex<T> MatrixComplexNode<T>::augment(MatrixComplex<T> *b) const {
+    if (isUndefined()) {
+      return MatrixComplex<T>::Undefined();
+    }
+    MatrixComplex<T> result = MatrixComplex<T>::Builder();
+    for(int i = 0; i < numberOfRows(); i++) {
+      for(int j = 0; j < numberOfColumns(); j++) {
+        result.addChildAtIndexInPlace(Complex<T>::Builder(complexAtIndex(i * numberOfColumns() + j)), result.numberOfChildren(), result.numberOfChildren());
+      }
+      for(int j = 0; j < b->numberOfColumns(); j++) {
+        result.addChildAtIndexInPlace(Complex<T>::Builder(b->complexAtIndex(i * b->numberOfColumns() + j)), result.numberOfChildren(), result.numberOfChildren());
+      }
+    }
+    result.setDimensions(numberOfRows(), numberOfColumns() + b->numberOfColumns());
+    return result;
+}
+
+template <typename T>
 MatrixComplex<T> MatrixComplexNode<T>::ref(bool reduced) const {
   // Compute Matrix Row Echelon Form
   if (numberOfChildren() == 0 ||

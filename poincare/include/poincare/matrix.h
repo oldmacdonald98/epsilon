@@ -106,6 +106,7 @@ class Matrix final : public Expression {
    * not. */
   Expression createInverse(const ReductionContext& reductionContext,
                            bool* couldComputeInverse) const;
+  Expression augment(Matrix *b, const ReductionContext& reductionContext) const;
   Expression determinant(const ReductionContext& reductionContext,
                          bool* couldComputeDeterminant, bool inPlace);
   Expression norm(const ReductionContext& reductionContext) const;

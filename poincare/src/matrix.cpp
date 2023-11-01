@@ -1,3 +1,4 @@
+#include <iostream>
 #include <assert.h>
 #include <float.h>
 #include <ion/circuit_breaker.h>
@@ -558,6 +559,20 @@ Expression Matrix::createInverse(const ReductionContext &reductionContext,
   Expression result =
       computeInverseOrDeterminant(false, reductionContext, couldComputeInverse);
   assert(!(*couldComputeInverse) || !result.isUninitialized());
+  return result;
+}
+
+Expression Matrix::augment(Matrix *b, const ReductionContext &reductionContext) const {
+  Matrix result = Matrix::Builder();
+  for(int i = 0; i < numberOfRows(); i++) {
+    for(int j = 0; j < numberOfColumns(); j++) {
+      result.addChildAtIndexInPlace(childAtIndex(i * numberOfColumns() + j), result.numberOfChildren(), result.numberOfChildren());
+    }
+    for(int j = 0; j < b->numberOfColumns(); j++) {
+      result.addChildAtIndexInPlace(b->childAtIndex(i * b->numberOfColumns() + j), result.numberOfChildren(), result.numberOfChildren());
+    }
+  }
+  result.setDimensions(numberOfRows(), numberOfColumns() + b->numberOfColumns());
   return result;
 }
 

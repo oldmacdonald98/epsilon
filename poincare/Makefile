@@ -149,6 +149,7 @@ poincare_src += $(addprefix poincare/src/,\
   logarithm.cpp \
   logical_operator.cpp \
   matrix.cpp \
+  matrix_augment.cpp \
   matrix_complex.cpp \
   matrix_echelon_form.cpp \
   matrix_identity.cpp \

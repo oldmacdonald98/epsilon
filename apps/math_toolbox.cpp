@@ -653,6 +653,8 @@ constexpr ToolboxMessageTree matricesChildren[] = {
                              I18n::Message::Inverse),
     ToolboxMessageTree::Leaf(I18n::Message::IndentityCommandWithArg,
                              I18n::Message::Identity),
+    ToolboxMessageTree::Leaf(I18n::Message::AugmentedMatrixCommandWithArg, 
+                             I18n::Message::AugmentedMatrix),
     ToolboxMessageTree::Leaf(I18n::Message::TraceCommandWithArg,
                              I18n::Message::Trace),
     ToolboxMessageTree::Leaf(I18n::Message::RowEchelonFormCommandWithArg,
